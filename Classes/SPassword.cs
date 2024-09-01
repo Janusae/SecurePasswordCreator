@@ -8,38 +8,54 @@ namespace ConsoleApp29.Classes
 {
     internal class SPassword
     {
-        public static void Create(int Number)
+        public static void Create()
         {
-            var count = 0;
-            var password = string.Empty;
-            Random random = new Random();
-            List<object> mainlist = new List<object>
+            Console.WriteLine("Enter the lengh of your password : ");
+            try
+            {
+                var lenghpassword = Convert.ToInt32(Console.ReadLine());
+                var count = 0;
+                var password = string.Empty;
+                Random random = new Random();
+                List<object> mainlist = new List<object>
         {
             "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
             "-", "=", "{", "}", "[", "]", "|", ":", ";", "'", "\"",
             "<", ">", ",", ".", "?", "/"
         };
-            for (int i = 0; i < 10; i++)
-            {
-                mainlist.Add(i.ToString());
+                for (int i = 0; i < 10; i++)
+                {
+                    mainlist.Add(i.ToString());
+                }
+                for (char c = 'a'; c <= 'z'; c++)
+                {
+                    mainlist.Add(c.ToString());
+                }
+                for (char a = 'A'; a <= 'Z'; a++)
+                {
+                    mainlist.Add(a.ToString());
+                }
+
+                while (count < lenghpassword)
+                {
+                    count++;
+                    password += mainlist[random.Next(mainlist.Count)];
+
+                }
+                Console.BackgroundColor = ConsoleColor.Green; 
+                Console.WriteLine(password);
+                Console.ResetColor();
             }
-            for (char c = 'a'; c <= 'z'; c++)
+            catch(Exception e)
             {
-                mainlist.Add(c.ToString());
-            }
-            for (char a = 'A'; a <= 'Z'; a++)
-            {
-                mainlist.Add(a.ToString());
+                Console.BackgroundColor = ConsoleColor.Red; 
+                Console.WriteLine(e.Message);
+
             }
 
-            while (count < Number)
-            {
-                count++;
-                password += mainlist[random.Next(mainlist.Count)];
 
+            Console.ReadKey();
             }
-            Console.WriteLine(password);
-
         }
-    }
+    
 }

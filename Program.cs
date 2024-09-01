@@ -6,7 +6,7 @@ namespace MainProject
     {
         static void Main()
         {
-            SPassword.Create(24);
+            SPassword.Create();
         }
     }
 }
