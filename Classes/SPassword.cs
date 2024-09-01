@@ -20,7 +20,7 @@ namespace ConsoleApp29.Classes
                 List<object> mainlist = new List<object>
         {
             "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
-            "-", "=", "{", "}", "[", "]", "|", ":", ";", "'", "\"",
+            "-", "|", ":", ";", "'", "\\",
             "<", ">", ",", ".", "?", "/"
         };
                 for (int i = 0; i < 10; i++)
@@ -42,20 +42,20 @@ namespace ConsoleApp29.Classes
                     password += mainlist[random.Next(mainlist.Count)];
 
                 }
-                Console.BackgroundColor = ConsoleColor.Green; 
+
                 Console.WriteLine(password);
-                Console.ResetColor();
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.BackgroundColor = ConsoleColor.Red; 
-                Console.WriteLine(e.Message);
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine("You must enter number instead of letters!");
 
             }
 
 
             Console.ReadKey();
-            }
         }
-    
+    }
+
 }
